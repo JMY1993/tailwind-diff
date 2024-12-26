@@ -7,7 +7,7 @@ type Diff = Pick<DiffState, "commonClasses" | "diffClasses" | "inputs"> & {
   createdAt: string;
 };
 
-const db = new Dexie("FriendsDatabase") as Dexie & {
+const db = new Dexie("TailwindDiffsDatabase") as Dexie & {
   diffs: EntityTable<
     Diff,
     "id" // primary key "id" (for the typings only)
