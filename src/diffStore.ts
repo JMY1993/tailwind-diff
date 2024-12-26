@@ -1,10 +1,12 @@
 import { create } from "zustand";
-import { calcDiff } from "./lib";
+import { calcDiff } from "./tool_functions";
 
-type DiffState = {
+export type DiffState = {
   inputs: { name: string; values: string[]; id: number }[];
   commonClasses: string[];
   diffClasses: { name: string; values: string[]; id: number }[];
+  loadDiffs: ({inputs, commonClasses, diffClasses}:Pick<DiffState, "inputs" | "commonClasses" | "diffClasses">) => void;
+  reset: () => void;
   expandInputs: () => void;
   shrinkInputs: () => void;
   changeTitle: (id: number, title: string) => void;
@@ -18,6 +20,16 @@ export const useDiffStore = create<DiffState>((set) => ({
   ],
   commonClasses: [],
   diffClasses: [],
+  reset: () => set(() => ({
+    inputs: [
+      { name: "", values: [], id: 0 },
+      { name: "", values: [], id: 1 },
+    ],
+    commonClasses: [],
+    diffClasses: [],
+  })),
+  loadDiffs: ({inputs, commonClasses, diffClasses}) =>
+    set(() => ({inputs, commonClasses, diffClasses})),
   expandInputs: () =>
     set((state) => ({
       inputs: [
@@ -69,7 +81,7 @@ export const useDiffStore = create<DiffState>((set) => ({
         const { common, diffs } = calcDiff(
           newInputs.map((input) => input.values.join(" "))
         );
-        console.log(common, diffs);
+        // console.log(common, diffs);
         return {
           inputs: newInputs,
           commonClasses: common.split(" "),
