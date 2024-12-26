@@ -57,7 +57,7 @@ export default function App() {
               className="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium py-2 px-4 rounded-lg
                        hover:from-purple-600 hover:to-pink-600 transition-all duration-200 mb-6"
             >
-              Save Comparison
+              Save Diffs
             </button>
 
             <div className="space-y-6">
