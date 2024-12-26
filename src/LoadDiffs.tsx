@@ -93,16 +93,15 @@ export function LoadDiffsDialog() {
           {diffsList.map(({ name, createdAt, id, numDiffs }) => (
             <div 
               key={id} 
-              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-800/80 to-gray-900/80 p-4
-                transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-blue-500/20"
+              className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-gray-800 to-gray-900 p-4
+                hover:shadow-xl hover:shadow-blue-500/20"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 opacity-0 
-                transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5" />
               
               <div className="relative flex items-center justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <div className="h-2.5 w-2.5 animate-pulse rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" />
+                    <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 ring-4 ring-emerald-400/20" />
                     <h3 className="text-lg font-medium text-gray-200 group-hover:text-white">
                       {name}
                     </h3>
