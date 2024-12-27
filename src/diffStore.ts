@@ -81,7 +81,6 @@ export const useDiffStore = create<DiffState>((set) => ({
         const { common, diffs } = calcDiff(
           newInputs.map((input) => input.values.join(" "))
         );
-        // console.log(common, diffs);
         return {
           inputs: newInputs,
           commonClasses: common.split(" "),

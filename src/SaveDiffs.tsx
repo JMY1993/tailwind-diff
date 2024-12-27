@@ -35,9 +35,7 @@ export function SaveDiffsDialog() {
         name: name,
         createdAt: new Date().toLocaleString(),
       };
-      console.log("Saving diffs:", diffs);
       const id = await db.diffs.add(diffs);
-      console.log(`Saved diffs with id: ${id}`);
       setSavingState(`Saved diffs with id: ${id}`);
       setIsSaving(false);
     } catch (error) {

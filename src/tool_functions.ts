@@ -18,4 +18,3 @@ export function calcDiff(classNameArray: string[]): {
     diffs: diffs.map((diff) => [...diff].join(" ")),
   };
 }
-

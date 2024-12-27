@@ -3,13 +3,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  // DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
 import { useDiffStore } from "./diffStore";
 import { db } from "./db";
 import { useState } from "react";
@@ -29,9 +26,6 @@ type DiffsListItem = {
 
 export function LoadDiffsDialog() {
   const loadDiffs = useDiffStore((state) => state.loadDiffs);
-  // const [diffState, setDiffState] = useState<Parameters<
-  //   typeof loadDiffs
-  // > | null>(null);
   const [diffsList, setDiffsList] = useState<DiffsListItem[]>([]);
   const [loadingState, setLoadingState] = useState("");
   async function listDiffsFromDb() {
@@ -148,9 +142,6 @@ export function LoadDiffsDialog() {
             {loadingState}
           </div>
         )}
-        {/* <DialogFooter>
-          <Button type="submit">Load</Button>
-        </DialogFooter> */}
       </DialogContent>
     </Dialog>
   );
